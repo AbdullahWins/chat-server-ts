@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "target": "ES2020", // Specifies ECMAScript target version.
+    "module": "NodeNext", // Uses NodeNext for module and moduleResolution for modern modules.
+    "moduleResolution": "NodeNext", // Ensures Node-style module resolution.
+    "outDir": "./dist", // Compiles output to the "dist" folder.
+    "rootDir": "./src", // Specifies root source directory.
+    "strict": true, // Enables all strict type-checking options.
+    "esModuleInterop": true, // Enables compatibility with CommonJS modules.
+    "forceConsistentCasingInFileNames": true, // Ensures consistent file name casing.
+    "skipLibCheck": true, // Skips type checking for library files to speed up compilation.
+    "resolveJsonModule": true, // Allows importing JSON modules.
+    "types": ["node"] // Includes Node.js types for compatibility.
+  },
+  "include": ["src"], // Includes all files in the src folder.
+  "exclude": ["node_modules", "dist"] // Excludes node_modules and dist folders from compilation.
+}
