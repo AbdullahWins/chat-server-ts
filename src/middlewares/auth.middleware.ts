@@ -1,6 +1,6 @@
 // middlewares/socketAuthMiddleware.ts
 import { Socket } from "socket.io";
-import jwt from "jsonwebtoken";
+import { verifyToken } from "../services";
 
 export const socketAuthMiddleware = (
   socket: Socket,
@@ -15,9 +15,7 @@ export const socketAuthMiddleware = (
     }
 
     // Verify the token
-    const payload = jwt.verify(token, process.env.JWT_SECRET!) as {
-      id: string;
-    };
+    const payload = verifyToken(token) as { id: string }; // Cast to appropriate type
 
     // Attach the user info to the socket for use in event handlers
     socket.data.user = payload;

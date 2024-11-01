@@ -1,5 +1,5 @@
 import { Server, Socket } from "socket.io";
-import chatModel from "../models/chat/chat.model";
+import { Chat } from "../models";
 // import { socketAuthMiddleware } from "../middlewares/auth.middleware";
 
 export const initializeChatSocket = (io: Server) => {
@@ -18,15 +18,8 @@ export const initializeChatSocket = (io: Server) => {
     socket.on("individual", async (data) => {
       const { senderId, receiverId, message, media } = data;
 
-      console.log("Message received:", {
-        senderId,
-        receiverId,
-        message,
-        media,
-      });
-
       // Save chat to MongoDB
-      const chat = await new chatModel({
+      const chat = await new Chat({
         senderId,
         receiverId,
         message,
